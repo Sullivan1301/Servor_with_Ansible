@@ -1,0 +1,19 @@
+- name: Create Apache2 pages
+  hosts: webserver
+  become: true
+
+  tasks:
+    - name: Copy api.html for api.hei.school
+      copy:
+        src: /home/sullivan/Sys1-Ansible/api.html
+        dest: /var/www/html/api/index.html
+
+    - name: Copy front.html for front.hei.school
+      copy:
+        src: /home/sullivan/Sys1-Ansible/front.html
+        dest: /var/www/html/front/index.html
+
+    - name: Copy back.html for back.hei.school
+      copy:
+        src: /home/sullivan/Sys1-Ansible/back.html
+        dest: /var/www/html/back/index.html
