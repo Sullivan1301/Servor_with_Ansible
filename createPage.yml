@@ -2,7 +2,24 @@
   hosts: webserver
   become: true
 
-  tasks:
+  tasks: 
+    - name: Create api directory
+      file:
+        path: /var/www/html/api
+        state: directory
+        mode: "0755"
+
+    - name: Create front directory
+      file:
+        path: /var/www/html/front
+        state: directory
+        mode: "0755"
+
+    - name: Create back directory
+      file:
+        path: /var/www/html/back
+        state: directory
+        mode: "0755"
     - name: Copy api.html for api.hei.school
       copy:
         src: /home/sullivan/Sys1-Ansible/api.html
